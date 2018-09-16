@@ -17,8 +17,8 @@ async function run() {
 
   // Login
   await page.goto('https://ring.com/users/sign_in');
-  await page.type('#user_email', process.env.RING_USER);
-  await page.type('#user_password', process.env.RING_PWD);
+  await page.type('#user_email', process.env.RING_USERNAME);
+  await page.type('#user_password', process.env.RING_PASSWORD);
   await page.screenshot({ path: 'screenshots/ring-login.png' });
   await page.click('#new_user > button');
   await page.waitForNavigation();
