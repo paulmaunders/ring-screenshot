@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "puppeteer": "^1.8.0"
+  },
+  "name": "ring-screenshot",
+  "version": "1.0.0",
+  "description": "Tool to grab screenshots from cameras hosted by ring.com",
+  "main": "ring-screenshot.js",
+  "author": "Paul Maunders",
+  "license": "MIT",
+  "private": false
+}
