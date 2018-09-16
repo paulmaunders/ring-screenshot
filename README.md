@@ -11,12 +11,17 @@ pip install ring_doorbell
 
 ## Configuration
 Set your environment variables
-```export RING_USERNAME=myuser 
+```
+export RING_USERNAME=myuser 
 export RING_PASSWORD=mypassword 
 ```
 If you want to set them persistently, edit /etc/environment or the equivalent file.
 ## Usage
 To run the Javascript version of the screenshot script
-```node ring-screenshot.js```
+```
+node ring-screenshot.js
+```
 To run the Python version of the screenshot script
-```python ring-screenshot.py```
+```
+python ring-screenshot.py
+```
