@@ -5,6 +5,7 @@ A couple of scripts to help save screenshots from Ring doorbells and security ca
 ```bash
 git clone git@github.com:paulmaunders/ring-screenshot.git
 cd ring-screenshot
+npm install yarn -g
 yarn install
 pip install ring_doorbell
 ```
