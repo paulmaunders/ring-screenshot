@@ -2,11 +2,16 @@ import os
 import time
 from ring_doorbell import Ring
 from pprint import pprint
+import ConfigParser
+
+# Note that ConfigParser has been renamed to configparser in Python 3, so this will have to be renamed
+config = ConfigParser.ConfigParser()
+config.read('config.ini')
 
 # Set your environment variables with export RING_USERNAME='user@host'
-RING_USERNAME = os.environ.get('RING_USERNAME', None)
-RING_PASSWORD = os.environ.get('RING_PASSWORD', None)
-SCREENSHOT_DIRECTORY = './screenshots'
+RING_USERNAME = config.get('DEFAULT', 'RING_USERNAME')
+RING_PASSWORD = config.get('DEFAULT','RING_PASSWORD')
+SCREENSHOT_DIRECTORY = config.get('DEFAULT','SCREENSHOT_DIRECTORY')
 
 # Create the screenshot folder
 if not os.path.exists(SCREENSHOT_DIRECTORY):
@@ -29,5 +34,5 @@ timestr = dev.history(limit=10, kind='motion')[0]['created_at'].strftime("%Y%m%d
 
 dev.recording_download(
     dev.history(limit=10, kind='motion')[0]['id'],
-                     filename='./' + SCREENSHOT_DIRECTORY + '/motion-stickup1-' + timestr + '.mp4',
+                     filename= SCREENSHOT_DIRECTORY + '/motion-stickup1-' + timestr + '.mp4',
                      override=True)

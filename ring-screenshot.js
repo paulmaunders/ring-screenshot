@@ -1,8 +1,12 @@
 const puppeteer = require('puppeteer');
+const ini = require('ini');
+var fs = require('fs');
+
+// Read config
+const config = ini.parse(fs.readFileSync('./config.ini', 'utf-8'));
 
 // Create screenshot folder if it doesn't exist
-var fs = require('fs');
-var dir = './screenshots';
+var dir = config.DEFAULT.SCREENSHOT_DIRECTORY;
 
 if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
@@ -17,8 +21,8 @@ async function run() {
 
   // Login
   await page.goto('https://ring.com/users/sign_in');
-  await page.type('#user_email', process.env.RING_USERNAME);
-  await page.type('#user_password', process.env.RING_PASSWORD);
+  await page.type('#user_email', config.DEFAULT.RING_USERNAME);
+  await page.type('#user_password', config.DEFAULT.RING_PASSWORD);
   await page.screenshot({ path: 'screenshots/ring-login.png' });
   await page.click('#new_user > button');
   await page.waitForNavigation();
