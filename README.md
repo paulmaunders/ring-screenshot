@@ -22,7 +22,6 @@ RING_USERNAME=myuser
 RING_PASSWORD=mypassword 
 SCREENSHOTS_DIRECTORY=~/ring-screenshot/screenshots
 ```
-If you want to set them persistently, edit /etc/environment or the equivalent file.
 ## Usage
 To run the Javascript version of the screenshot script
 ```
