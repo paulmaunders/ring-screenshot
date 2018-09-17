@@ -1,0 +1,5 @@
+; Example config.ini
+# Set your environment variables with export RING_USERNAME='user@host'
+RING_USERNAME = os.environ.get('RING_USERNAME', None)
+RING_PASSWORD = os.environ.get('RING_PASSWORD', None)
+SCREENSHOT_DIRECTORY = '~/ring-screenshot/screenshots'
