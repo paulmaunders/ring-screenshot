@@ -30,9 +30,11 @@ True
 dev = myring.stickup_cams[1]
 # pprint(dev.history(limit=10, kind='motion')[0]['id'])
 
-timestr = dev.history(limit=10, kind='motion')[0]['created_at'].strftime("%Y%m%d-%H%M%S")
+history = dev.history(limit=10, kind='motion')
+for recording in history:
+    timestr = recording['created_at'].strftime("%Y%m%d-%H%M%S")
 
-dev.recording_download(
-    dev.history(limit=10, kind='motion')[0]['id'],
-                     filename= SCREENSHOT_DIRECTORY + '/motion-stickup1-' + timestr + '.mp4',
-                     override=True)
+    dev.recording_download(
+        recording['id'],
+        filename= SCREENSHOT_DIRECTORY + '/motion-stickup1-' + timestr + '.mp4',
+        override=False)
