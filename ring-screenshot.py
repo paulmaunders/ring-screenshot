@@ -3,6 +3,8 @@ import time
 from ring_doorbell import Ring
 from pprint import pprint
 import ConfigParser
+import logging
+logging.basicConfig()
 
 # Note that ConfigParser has been renamed to configparser in Python 3, so this will have to be renamed
 config = ConfigParser.ConfigParser()
@@ -37,4 +39,4 @@ for recording in history:
     dev.recording_download(
         recording['id'],
         filename= SCREENSHOT_DIRECTORY + '/motion-stickup1-' + timestr + '.mp4',
-        override=False)
+        override=True)
